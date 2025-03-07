@@ -29,7 +29,10 @@ Public Class Main
     Private Sub MensajeBorocitoRecibido(sender As Object, message As String)
         Try
             'Envia el mensaje recibido de Borocito a todos los clientes del servidor
-            Console.WriteLine("CLIENT: " & message)
+            If message.Trim().StartsWith("¡#") Then 'es un mensaje para broadcast only
+                Exit Sub
+            End If
+            Console.WriteLine("Mensaje desde Borocito para todos: " & message)
             tcpServer.SendMessageToAllClients(message)
         Catch ex As Exception
             AddToLog("MensajeBorocitoRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)
@@ -38,7 +41,7 @@ Public Class Main
     Private Sub MensajeServidorRecibido(sender As Object, message As String)
         Try
             'Envia el mensaje recibido del servidor al cliente de Borocito
-            Console.WriteLine("SERVER: " & message)
+            Console.WriteLine("Mensaje para Borocito desde todos: " & message)
             tcpClient.SendMesssage(message)
         Catch ex As Exception
             AddToLog("MensajeServidorRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)

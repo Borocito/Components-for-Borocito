@@ -53,7 +53,6 @@ Namespace Boro_Comm
                     Try
                         Dim data As Byte() = Encoding.UTF8.GetBytes(message)
                         clientStream.Write(data, 0, data.Length)
-                        Console.WriteLine("Mensaje enviado: " & message)
                     Catch ex As Exception
                         Console.WriteLine("Error enviando mensaje: " & ex.Message)
                     End Try
@@ -143,20 +142,14 @@ Namespace Boro_Comm
             Private Sub HandleClientCommunication(client As TcpClient)
                 Dim clientStream As NetworkStream = client.GetStream()
                 Dim buffer(1024) As Byte
-
                 While isListening
                     Try
                         If clientStream.DataAvailable Then
                             Dim bytesRead As Integer = clientStream.Read(buffer, 0, buffer.Length)
                             If bytesRead > 0 Then
                                 Dim message As String = Encoding.UTF8.GetString(buffer, 0, bytesRead)
-                                Console.WriteLine("Mensaje recibido: " & message)
-
                                 ' Llamar al evento para notificar a otros componentes
                                 RaiseEvent MessageReceived(Me, message)
-
-                                ' Enviar respuesta a todos los clientes
-                                SendMessageToAllClients(message)
                             End If
                         End If
                         Thread.Sleep(100)
@@ -173,7 +166,6 @@ Namespace Boro_Comm
                 Dim data As Byte() = Encoding.UTF8.GetBytes(message)
                 Try
                     clientStream.Write(data, 0, data.Length)
-                    Console.WriteLine("Mensaje enviado al cliente: " & message)
                 Catch ex As Exception
                     Console.WriteLine("Error enviando mensaje al cliente: " & ex.Message)
                 End Try
@@ -181,11 +173,9 @@ Namespace Boro_Comm
             ' Método para enviar un mensaje a todos los clientes conectados
             Public Sub SendMessageToAllClients(message As String)
                 Dim data As Byte() = Encoding.UTF8.GetBytes(message)
-
                 For Each clientStream As NetworkStream In clientStreams
                     Try
                         clientStream.Write(data, 0, data.Length)
-                        Console.WriteLine("Mensaje enviado a todos los clientes: " & message)
                     Catch ex As Exception
                         Console.WriteLine("Error enviando mensaje a los clientes: " & ex.Message)
                     End Try

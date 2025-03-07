@@ -13,8 +13,9 @@ Namespace Boro_Comm
         End Sub
         Function SendMesssage(message As String) As String
             Try
+                'TODO: permitir reconectarse al servidor para enviar.
                 If tcpClient IsNot Nothing AndAlso message IsNot Nothing Then
-                    tcpClient.SendMesssage(message)
+                    tcpClient.SendMesssage("¡#" & message)
                     Console.WriteLine("Mensaje enviado: " & message)
                 End If
                 Return message

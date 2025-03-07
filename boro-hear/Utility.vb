@@ -45,7 +45,7 @@ Module GlobalUses
     Public DIRHome As String = DIRCommons & "\boro-get\" & My.Application.Info.AssemblyName
     Public compileVersion As String = My.Application.Info.Version.ToString &
         " (" & Application.ProductVersion & ") " &
-        "[14/04/2023 20:56]" 'Indicacion exacta de la ultima compilacion
+        "[17/03/2025 12:32]" 'Indicacion exacta de la ultima compilacion
 
     Public HttpOwnerServer As String
     Public UID As String
@@ -100,26 +100,6 @@ Module StartUp
     End Sub
 End Module
 Module ResponseAdministrator
-    Public messageQueue As New ArrayList
-
-    'En desarrollo
-    Sub AddMessageToQueue(ByVal message As String)
-        Try
-            messageQueue.Add(message)
-            ProcessMessageQueue()
-        Catch ex As Exception
-            AddToLog("AddMessageToQueue@server_CONNECT", "Error: " & ex.Message, True)
-        End Try
-    End Sub
-    Sub ProcessMessageQueue()
-        Try
-            For Each item As String In messageQueue
-                SendToServer(item)
-            Next
-        Catch ex As Exception
-            AddToLog("ProcessMessageQueue@server_CONNECT", "Error: " & ex.Message, True)
-        End Try
-    End Sub
 
     Sub SendToServer(ByVal message As String)
         Try
@@ -194,4 +174,3 @@ Module ResponseAdministrator
         End Try
     End Function
 End Module
-'Si ya hay un mensaje BORO-HEAR en el fichero de comando, entonces deberia escribirse en la siguiente linea.
