@@ -1,90 +1,103 @@
-﻿Imports System.IO
-Imports System.Net.Sockets
+﻿Imports System.Net.Sockets
 Imports System.Threading
 Imports System.Text
 Namespace Boro_Comm
 
-    Module Connector
-        Dim MISTREAM As Stream
-        Dim CLIENTE As TcpClient
-        Dim THREADSERVIDOR As Thread
-        Dim IsConnected As Boolean = False
+    Module Cliente
 
-        Sub ConnectorManager()
+        Dim tcpClient As TCPCliente
+        Sub ConnectToServer()
+            TcpClient = New TCPCliente()
+            ' Conectar al servidor
+            TcpClient.ConnectToServer()
+        End Sub
+        Function SendMesssage(message As String) As String
             Try
-                If Not IsConnected Then
-                    ConnectTo()
-                Else
-                    DisconnectFrom()
+                If tcpClient IsNot Nothing AndAlso message IsNot Nothing Then
+                    tcpClient.SendMesssage(message)
+                    Console.WriteLine("Mensaje enviado: " & message)
                 End If
+                Return message
             Catch ex As Exception
-                AddToLog("ConnectorManager@Boro-Comm::Connector", "Error: " & ex.Message, True)
+                Return ex.Message
             End Try
-        End Sub
-        Sub ConnectTo()
-            Try
-                IsConnected = True
-                CLIENTE = New TcpClient
-                CLIENTE.Connect("localhost", 13120)
-                MISTREAM = CLIENTE.GetStream
-                THREADSERVIDOR = New Thread(AddressOf LEER)
-                THREADSERVIDOR.Start()
-            Catch ex As Exception
-                AddToLog("ConnectTo@Boro-Comm::Connector", "Error: " & ex.Message, True)
-            End Try
-        End Sub
-        Sub DisconnectFrom()
-            Try
-                IsConnected = False
+        End Function
+
+        Public Class TCPCliente
+            Private client As TcpClient
+            Private clientStream As NetworkStream
+            Private thread As Thread
+            Private isConnected As Boolean
+            Private serverIp As String = "127.0.0.1"
+            Private serverPort As Integer = 13121
+
+            Public Event MessageReceived As EventHandler(Of String)
+
+            Public Sub New()
+                client = New TcpClient()
+                isConnected = False
+            End Sub
+
+            ' Método para conectar al servidor
+            Public Sub ConnectToServer()
                 Try
-                    CLIENTE.Close()
-                    THREADSERVIDOR.Abort()
-                Catch
+                    client.Connect(serverIp, serverPort)
+                    clientStream = client.GetStream()
+                    isConnected = True
+                    Console.WriteLine("Conectado al servidor.")
+                    ' Iniciar hilo para leer los mensajes del servidor
+                    thread = New Thread(AddressOf ReadMessages)
+                    thread.Start()
+                Catch ex As Exception
+                    Console.WriteLine("Error conectando al servidor: " & ex.Message)
                 End Try
-            Catch ex As Exception
-                AddToLog("DisconnectFrom@Boro-Comm::Connector", "Error: " & ex.Message, True)
-            End Try
-        End Sub
+            End Sub
 
-        Private Sub LEER()
-            Try
-                Dim MIBUFFER() As Byte
-                While True
+            ' Método para desconectar del servidor
+            Public Sub DisconnectFromServer()
+                Try
+                    isConnected = False
+                    clientStream.Close()
+                    client.Close()
+                    Console.WriteLine("Desconectado del servidor.")
+                Catch ex As Exception
+                    Console.WriteLine("Error desconectando: " & ex.Message)
+                End Try
+            End Sub
+
+            ' Método para enviar un mensaje al servidor
+            Public Sub SendMesssage(message As String)
+                If isConnected AndAlso clientStream IsNot Nothing Then
                     Try
-                        MIBUFFER = New Byte(100) {}
-                        MISTREAM.Read(MIBUFFER, 0, MIBUFFER.Length)
-                        Dim MENSAJE As String = Encoding.UTF7.GetString(MIBUFFER)
-                        If MENSAJE.Contains("AAAAAAAAAAAAAAAAA") Then 'PARA EVITAR UN EXTRAÑO ¿ECO?
-                            'ES ESE ¿ECO?
-                        Else
-                            If MENSAJE.StartsWith("") Then
+                        Dim data As Byte() = Encoding.UTF8.GetBytes(message)
+                        clientStream.Write(data, 0, data.Length)
+                        Console.WriteLine("Mensaje enviado: " & message)
+                    Catch ex As Exception
+                        Console.WriteLine("Error enviando mensaje: " & ex.Message)
+                    End Try
+                End If
+            End Sub
 
-                            ElseIf MENSAJE.StartsWith("") Then
-
+            ' Método para leer los mensajes del servidor
+            Private Sub ReadMessages()
+                Dim buffer(1024) As Byte
+                While isConnected
+                    Try
+                        If clientStream.DataAvailable Then
+                            Dim bytesRead As Integer = clientStream.Read(buffer, 0, buffer.Length)
+                            If bytesRead > 0 Then
+                                Dim message As String = Encoding.UTF8.GetString(buffer, 0, bytesRead)
+                                RaiseEvent MessageReceived(Me, message)
                             End If
                         End If
+                        Thread.Sleep(100)
                     Catch ex As Exception
-                        AddToLog("LEER.While@Boro-Comm::Connector", "Error: " & ex.Message, True)
+                        Console.WriteLine("Error leyendo mensaje: " & ex.Message)
                         Exit While
                     End Try
                 End While
-                DisconnectFrom()
-            Catch ex As Exception
-                AddToLog("LEER@Boro-Comm::Connector", "Error: " & ex.Message, True)
-            End Try
-        End Sub
-        Public Sub ENVIAR(ByVal MENSAJE As String, Optional ByVal usePrefix As Boolean = True)
-            Try
-                If usePrefix Then
-                    MENSAJE = "Boro-Hear> " & MENSAJE
-                End If
-                Dim MIBUFFER() As Byte
-                MIBUFFER = Encoding.UTF7.GetBytes(MENSAJE)
-                MISTREAM.Write(MIBUFFER, 0, MIBUFFER.Length)
-            Catch ex As Exception
-                AddToLog("ENVIAR@Boro-Comm::Connector", "Error: " & ex.Message, True)
-            End Try
-        End Sub
+            End Sub
+        End Class
     End Module
 
 End Namespace

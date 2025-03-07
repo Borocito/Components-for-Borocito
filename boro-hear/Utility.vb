@@ -124,7 +124,7 @@ Module ResponseAdministrator
     Sub SendToServer(ByVal message As String)
         Try
             Try
-                Boro_Comm.Connector.ENVIAR(message)
+                Boro_Comm.SendMesssage(message)
             Catch
             End Try
             Threading.Thread.Sleep(5000) '5 sec para evitar solapados

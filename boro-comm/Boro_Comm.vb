@@ -155,8 +155,8 @@ Namespace Boro_Comm
                                 ' Llamar al evento para notificar a otros componentes
                                 RaiseEvent MessageReceived(Me, message)
 
-                                ' Enviar respuesta al cliente
-                                SendMessageToClient(client, "Respuesta desde el servidor: " & message)
+                                ' Enviar respuesta a todos los clientes
+                                SendMessageToAllClients(message)
                             End If
                         End If
                         Thread.Sleep(100)

