@@ -1,5 +1,6 @@
 import os
 import re
+os.system("cls")
 
 # Ruta base donde se encuentran los proyectos
 base_path = "C:\\Users\\Zhen\\Documents\\GitHub\\Components-for-Borocito"  # Reemplaza esto con la ruta de tu solución
@@ -90,4 +91,4 @@ InstallFolder=%temp%
 
                 print(f"Archivo .inf creado: {inf_path}")
 
-print("Proceso completado.")
+print("¡Publicacion terminada!")
