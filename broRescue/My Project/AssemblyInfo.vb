@@ -10,10 +10,10 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Runtime Broker")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Microsoft Corporation")>
+<Assembly: AssemblyCompany("Zhenboro")>
 <Assembly: AssemblyProduct("broRescue")>
 <Assembly: AssemblyCopyright("")>
-<Assembly: AssemblyTrademark("Microsoft Corporation")>
+<Assembly: AssemblyTrademark("Zhenboro")>
 
 <Assembly: ComVisible(False)>
 
