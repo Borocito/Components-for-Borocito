@@ -1,4 +1,7 @@
-﻿Public Class Main
+﻿Imports boro_comm.Boro_Comm
+Public Class Main
+    Dim tcpServer As TCPServer
+    Dim tcpClient As TCPCliente
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Hide()
@@ -6,8 +9,40 @@
         parameters = Command()
         StartUp.Init()
         ReadParameters(parameters)
-        Console.WriteLine("INITIALING")
+        ConectarClienteBorocito()
+        CrearServidorPublico()
         AddHandler Microsoft.Win32.SystemEvents.SessionEnding, AddressOf SessionEvent
+    End Sub
+
+    Sub ConectarClienteBorocito()
+        tcpClient = New TCPCliente()
+        ' Conectar al servidor
+        tcpClient.ConnectToServer()
+        ' Manejar el evento de mensaje recibido
+        AddHandler tcpClient.MessageReceived, AddressOf MensajeBorocitoRecibido
+    End Sub
+    Sub CrearServidorPublico()
+        tcpServer = New TCPServer()
+        AddHandler tcpServer.MessageReceived, AddressOf MensajeServidorRecibido
+        tcpServer.StartServer()
+    End Sub
+    Private Sub MensajeBorocitoRecibido(sender As Object, message As String)
+        Try
+            'Envia el mensaje recibido de Borocito a todos los clientes del servidor
+            Console.WriteLine("CLIENT: " & message)
+            tcpServer.SendMessageToAllClients(message)
+        Catch ex As Exception
+            AddToLog("MensajeBorocitoRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)
+        End Try
+    End Sub
+    Private Sub MensajeServidorRecibido(sender As Object, message As String)
+        Try
+            'Envia el mensaje recibido del servidor al cliente de Borocito
+            Console.WriteLine("SERVER: " & message)
+            tcpClient.SendMesssage(message)
+        Catch ex As Exception
+            AddToLog("MensajeServidorRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)
+        End Try
     End Sub
     Sub SessionEvent(ByVal sender As Object, ByVal e As Microsoft.Win32.SessionEndingEventArgs)
         Try
