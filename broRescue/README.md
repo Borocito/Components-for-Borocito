@@ -1,6 +1,6 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 This plugin was created because it turns out that sometimes an instance of BorocitoCLI can be closed by some external or internal factor. Perhaps the user noticed the presence and closed it, or, a command left a mess that BorocitoCLI couldn't handle.  
@@ -41,7 +41,7 @@ Example:
 ```sh
 boro-get broRescue True /GetAFK
 ```  
-Data returned *([boro-hear](https://github.com/Zhenboro/borocito-components/blob/dev/boro-hear/README.md) must be installed)* 
+Data returned *([boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) must be installed)* 
 *The response is immediate (not 5 minutes later)*  
 ```sh
 Return

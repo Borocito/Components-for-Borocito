@@ -1,6 +1,6 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 This component was created to create exceptions in the windows firewall. This way you can avoid the Firewall message where an app is trying to make a connection.  

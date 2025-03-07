@@ -1,10 +1,10 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 It is used to perform typical operations of a FileSystem, delete, move, copy, rename and compress in zip.  
-I highly recommend having [boro-hear](https://github.com/Zhenboro/borocito-components/blob/dev/boro-hear/README.md) installed to use this component. So you know about the states.
+I highly recommend having [boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) installed to use this component. So you know about the states.
 
 ## Usage
 **Compress a folder:**  

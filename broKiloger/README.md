@@ -1,6 +1,6 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 Dedicated to registering keys from the keyboard.  
@@ -31,7 +31,6 @@ Is like a restart. Clean the record and then keep logging keys.
 /sendandexit
 ```
 The logs contain the keys pressed. {KEY_CODE} or normal uppercase letters for alphabet keys.  
-Can't understand a shit? [Key mapping for broKiloger keylog](https://chemic-jug.000webhostapp.com/Borocito/Mapeo_Teclas_Kiloger.txt)  
 
 You can also send keys with:  
  ```sh

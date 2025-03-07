@@ -1,6 +1,6 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 This plugin will be useful if you want to clean up the main Borocito folder.  

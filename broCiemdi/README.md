@@ -1,12 +1,12 @@
 
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 This plugin will allow you to execute code from the native Windows console and allows the display of the output regarding the entered command.  
 Can be used as a SSH.  
-To use this component it is necessary to have [boro-hear](https://github.com/Zhenboro/borocito-components/blob/dev/boro-hear/README.md) installed.  
+To use this component it is necessary to have [boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) installed.  
 
 > Single Instance Package
 

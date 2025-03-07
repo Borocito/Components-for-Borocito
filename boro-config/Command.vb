@@ -23,7 +23,7 @@ Module Command
                 Console.Clear()
 
             ElseIf args(0).ToLower = "@help" Then
-                Return "Find help at https://github.com/Zhenboro/borocito-components/tree/dev/boro-config"
+                Return "Find help at https://github.com/Borocito/Components-for-Borocito/tree/main/boro-config"
 
             ElseIf args(0).ToLower = "@uninstall" Then
                 Return "Ups, not coded yet!"

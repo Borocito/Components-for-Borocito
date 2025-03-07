@@ -6,22 +6,22 @@ With this component, you can install, uninstall and manage components created by
 The `boro-get` will be configured with the linked `config.ini` file inside `Globals.ini` file:  
 ```ini
 [boro-get]
-Configuration=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/config.ini
+Configuration=http://borocito.local/Boro-Get/config.ini
 ```  
 Now, inside the `config.ini`, the configuration file for `boro-get`. Boro-Get can be downloaded from:  
 ```ini
 [CONFIG]
-Binaries=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/boro-get.zip
+Binaries=http://borocito.local/Boro-Get/boro-get.zip
 ```  
 The, we must configure the repositories. Inside `config.ini`, we can link the `Repositories.ini` file.  
 ```ini
 [CONFIG]
-Repositories=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/Repositories.ini
+Repositories=http://borocito.local/Boro-Get/Repositories.ini
 ```  
 AND THEN, we must refer every component inside the `Repositories.ini` repository linker file. Example:  
 ```ini
 [REPOSITORIES]
-boro-hear=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/boro-hear.inf
+boro-hear=http://borocito.local/Boro-Get/boro-hear.inf
 ```  
 Now, that `boro-get` is already done in the **Server-Side**, we can start using it.  
 
@@ -82,11 +82,11 @@ Return:
 	Version: 0.3.2.0 (22.01.20.23)
 	broKiloger: C:\...\Borocito\boro-get\broKiloger\broKiloger.exe
 	Binaries: broKiloger.exe
-	Web: https://github.com/Zhenboro/borocito-components/tree/main/broKiloger
+	Web: https://github.com/Borocito/Components-for-Borocito/tree/main/broKiloger
 	isRunning: True
 	[BORO-GET: STATUS.END]
 ```
-[boro-hear](https://github.com/Zhenboro/borocito-components/blob/dev/boro-hear/README.md) must be installed (for the return response).
+[boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) must be installed (for the return response).
 
 ## Listing the installed components
 You don't know how many components are installed, and wanna know that?, NO problem.  

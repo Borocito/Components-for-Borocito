@@ -21,8 +21,8 @@ You can leave the files that are within `boro-get` as they were when you downloa
 Also, if you want my server to provide you with the repository, you must modify the file `Boro-Get/config.ini` that is in the `Borocito Server-Side` Boro-Get folder:   
 ```ini
 [CONFIG]
-Binaries=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/boro-get.zip
-Repositories=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/Repositories.ini
+Binaries=http://borocito.local/Boro-Get/boro-get.zip
+Repositories=http://borocito.local/Boro-Get/Repositories.ini
 ```
 **I really recommend you use my repository**, upload updates with improvements, etc. So you avoid having to update your repository.  
 Do that change writting seting the `config.ini` file as shown:  
@@ -32,10 +32,10 @@ Do that change writting seting the `config.ini` file as shown:
 Name=boro-get
 Version=1.2.0.0
 Author=Zhenboro
-Web=https://github.com/Zhenboro/borocito-components/tree/main/boro-get
+Web=https://github.com/Borocito/Components-for-Borocito/tree/main/boro-get
 [CONFIG]
-Binaries=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/boro-get.zip
-Repositories=http://chemic-jug.000webhostapp.com/Borocito/Boro-Get/Repositories.ini
+Binaries=http://borocito.local/Boro-Get/boro-get.zip
+Repositories=http://borocito.local/Boro-Get/Repositories.ini
 ```
 
 **Remember: it's just a repository. I can not steal the victims and either receive files either. It's just read-only**  
@@ -46,16 +46,17 @@ This README will be deprecated for the next update. Now the documentation of the
 
 |Component|Information|Docs|
 |--|--|--|
-|boro-get|Packet manager|[View](https://github.com/Zhenboro/borocito-components/tree/dev/boro-get)|
-|boro-hear|Response manager|[View](https://github.com/Zhenboro/borocito-components/tree/dev/boro-hear)|
-|broArbitra|Arbitrary Code Supplier|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broArbitra)|
-|broEstoraje|FileSystem Operations|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broEstoraje)|
-|broFaierwoll|Firewall rule creator|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broFaierwoll)|
-|broKiloger|Keylogger|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broKiloger)|
-|broMaintainer|Maintainer for BorocitoCLI|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broMaintainer)|
-|broReedit|Windows Registry Editor|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broReedit)|
-|broRescue|Emergency Component for BorocitoCLI|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broRescue)|
-|broScrincam|Device Spy IO utilities|[View](https://github.com/Zhenboro/borocito-components/tree/dev/broScrincam)|
+|boro-get|Packet manager|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-get)|
+|boro-hear|Response manager|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-hear)|
+|broArbitra|Arbitrary Code Supplier|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broArbitra)|
+|broCiemdi|Interactive terminal|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broCiemdi)|
+|broEstoraje|FileSystem Operations|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broEstoraje)|
+|broFaierwoll|Firewall rule creator|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broFaierwoll)|
+|broKiloger|Keylogger|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broKiloger)|
+|broMaintainer|Maintainer for BorocitoCLI|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broMaintainer)|
+|broReedit|Windows Registry Editor|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broReedit)|
+|broRescue|Emergency Component for BorocitoCLI|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broRescue)|
+|broScrincam|Device Spy IO utilities|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broScrincam)|
 
 ---
 ## WARNING

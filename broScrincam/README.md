@@ -1,6 +1,6 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Zhenboro/borocito-components/blob/dev/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
 
 ## About
 Dedicated to recording the screen, taking screenshots from a webcam, recording the desktop, among other similar functions.  
@@ -63,7 +63,7 @@ Then, select a camera:
 ```  
 Then, and finally, you can use the `/TakeCamPicture` command.  
 
-**For return strings, [boro-hear](https://github.com/Zhenboro/borocito-components/blob/dev/boro-hear/README.md) must be installed.**  
+**For return strings, [boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) must be installed.**  
 
 You must select a camera before using commands related to webcam control  
 
