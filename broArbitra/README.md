@@ -1,9 +1,9 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your Borocito CLI instances.  
 
 ## About
-broArbitra was created to execute arbitrary code completely independent of the BorocitoCLI instance.  
+broArbitra was created to execute arbitrary code completely independent of the Borocito CLI instance.  
 You can program your class with your own behavior.  
 
 What is mandatory are only three things:  

@@ -1,14 +1,14 @@
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your Borocito CLI instances.  
 
 ## About
-This plugin was created because it turns out that sometimes an instance of BorocitoCLI can be closed by some external or internal factor. Perhaps the user noticed the presence and closed it, or, a command left a mess that BorocitoCLI couldn't handle.  
+This plugin was created because it turns out that sometimes an instance of Borocito CLI can be closed by some external or internal factor. Perhaps the user noticed the presence and closed it, or, a command left a mess that Borocito CLI couldn't handle.  
 For this reason, broRescue is a good recommendation that it be installed.  
 
 > Single Instance Package  
 ## Usage
-If you notice that BorocitoCLI has closed. You can make broRescue restart the BorocitoCLI instance by using the command:  
+If you notice that Borocito CLI has closed. You can make broRescue restart the Borocito CLI instance by using the command:  
 ```sh
 broRescue Borocito
 ```  

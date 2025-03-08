@@ -1,6 +1,6 @@
 
 ## Borocito-Component
-This is BORO-GET, the most powerfull and usefull component/package administrador/manager for BorocitoCLI instances.  
+This is BORO-GET, the most powerfull and usefull component/package administrador/manager for Borocito CLI instances.  
 With this component, you can install, uninstall and manage components created by you, by the community or by Zhenboro.  
 
 The `boro-get` will be configured with the linked `config.ini` file inside `Globals.ini` file:  

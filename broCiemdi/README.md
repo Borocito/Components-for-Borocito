@@ -1,7 +1,7 @@
 
 ## Borocito-Component
 This is a component. And it can be installed with '`boro-get`'.  
-Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your BorocitoCLI instances.  
+Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-get/README.md) to know how to implement `boro-get`, with your Borocito CLI instances.  
 
 ## About
 This plugin will allow you to execute code from the native Windows console and allows the display of the output regarding the entered command.  
