@@ -3,6 +3,7 @@ Module GlobalUses
     Public parameters As String
     Public DIRCommons As String = "C:\Users\" & Environment.UserName & "\AppData\Local\Microsoft\Borocito"
     Public DIRHome As String = DIRCommons & "\boro-get\" & My.Application.Info.AssemblyName
+    Public customIp As String = Nothing
 End Module
 Module Utility
     Public tlmContent As String
@@ -101,13 +102,17 @@ Module StartUp
     End Sub
     Sub ReadParameters(ByVal parametros As String)
         Try
-            If parametros <> Nothing Then
-                Dim parameter As String = parametros
-                Dim args() As String = parameter.Split(" ")
+            If parametros.Contains(" ") Then
+                Dim args As String() = parametros.Split(" ")
+                If args(0).ToLower = "ip" Then
+                    customIp = args(1).Trim()
+                ElseIf args(0).ToLower = "stop" Then
+                    End
+                End If
             End If
-            End
         Catch ex As Exception
             AddToLog("ReadParameters@StartUp", "Error: " & ex.Message, True)
+            End
         End Try
     End Sub
 End Module

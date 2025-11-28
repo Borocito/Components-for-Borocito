@@ -8,7 +8,14 @@ This plugins allow that Man-in-the-Middle communication.
 
 > Single Instance Package  
 ## Usage
-Just install it. It will connect to the Owner Server TCP/IP on port 13120.
+Just install it. It will connect to the Owner Server TCP/IP on port 13120.  
+
+If you want to use a specific remote ip address, you can do so by launching it with the parameter:  
+```sh
+--ip 67.420.666.69
+```
+> If not, it will be using the OwnerServer value from the Windows Registry.  
+> _For now, the port specification is not possible._  
 
 ### WARNING
 **The plugins created are not perfect. I recommend you take a look at the code to know what it does and how it does it, so you avoid unpredictable behavior or bad practices.**

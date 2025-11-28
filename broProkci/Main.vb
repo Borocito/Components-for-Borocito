@@ -13,21 +13,33 @@ Public Class Main
     End Sub
 
     Sub ConectarClienteBorocito()
-        tcpBorocito = New TCPCliente("localhost", 13120)
-        tcpBorocito.ConnectToServer()
-        AddHandler tcpBorocito.MessageReceived, AddressOf MensajeBorocitoRecibido
+        Try
+            tcpBorocito = New TCPCliente("localhost", 13120)
+            tcpBorocito.ConnectToServer()
+            AddHandler tcpBorocito.MessageReceived, AddressOf MensajeBorocitoRecibido
+        Catch ex As Exception
+            AddToLog("ConectarClienteBorocito@Main", "Error: " & ex.Message, True)
+        End Try
     End Sub
     Sub ConectarClienteProxy()
-        tcpProxy = New TCPCliente(OwnerServer, 13120)
-        tcpProxy.ConnectToServer()
-        AddHandler tcpProxy.MessageReceived, AddressOf MensajeProxyRecibido
+        Try
+            If customIp = Nothing Then
+                tcpProxy = New TCPCliente(OwnerServer, 13120)
+            Else
+                tcpProxy = New TCPCliente(customIp, 13120)
+            End If
+            tcpProxy.ConnectToServer()
+            AddHandler tcpProxy.MessageReceived, AddressOf MensajeProxyRecibido
+        Catch ex As Exception
+            AddToLog("ConectarClienteProxy@Main", "Error: " & ex.Message, True)
+        End Try
     End Sub
     Private Sub MensajeBorocitoRecibido(sender As Object, message As String)
         Try
-            Console.WriteLine("Mensaje para Borocito desde Proxy: " & message)
+            Console.WriteLine("Mensaje para Proxy desde Borocito: " & message)
             tcpProxy.SendMesssage(message)
         Catch ex As Exception
-            AddToLog("MensajeBorocitoRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)
+            AddToLog("MensajeBorocitoRecibido@Main", "Error: " & ex.Message, True)
         End Try
     End Sub
     Private Sub MensajeProxyRecibido(sender As Object, message As String)
@@ -35,7 +47,7 @@ Public Class Main
             Console.WriteLine("Mensaje para Borocito desde Proxy: " & message)
             tcpBorocito.SendMesssage(message)
         Catch ex As Exception
-            AddToLog("MensajeProxyRecibido@Boro_Comm::Connector", "Error: " & ex.Message, True)
+            AddToLog("MensajeProxyRecibido@Main", "Error: " & ex.Message, True)
         End Try
     End Sub
 End Class

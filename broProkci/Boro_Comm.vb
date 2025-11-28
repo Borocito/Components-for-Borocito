@@ -1,7 +1,6 @@
 ﻿Imports System.Net.Sockets
 Imports System.Threading
 Imports System.Text
-Imports System.Net
 Namespace Boro_Comm
 
     Module Cliente
