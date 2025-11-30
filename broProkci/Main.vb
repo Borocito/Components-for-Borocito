@@ -7,6 +7,7 @@ Public Class Main
         Me.Hide()
         CheckForIllegalCrossThreadCalls = False
         parameters = Command()
+        StartUp.ReadParameters(parameters)
         StartUp.Init()
         ConectarClienteBorocito()
         ConectarClienteProxy()
@@ -36,7 +37,7 @@ Public Class Main
     End Sub
     Private Sub MensajeBorocitoRecibido(sender As Object, message As String)
         Try
-            Console.WriteLine("Mensaje para Proxy desde Borocito: " & message)
+            AddToLog("Borocito > Servidor", message)
             tcpProxy.SendMesssage(message)
         Catch ex As Exception
             AddToLog("MensajeBorocitoRecibido@Main", "Error: " & ex.Message, True)
@@ -44,7 +45,7 @@ Public Class Main
     End Sub
     Private Sub MensajeProxyRecibido(sender As Object, message As String)
         Try
-            Console.WriteLine("Mensaje para Borocito desde Proxy: " & message)
+            AddToLog("Servidor > Borocito", message)
             tcpBorocito.SendMesssage(message)
         Catch ex As Exception
             AddToLog("MensajeProxyRecibido@Main", "Error: " & ex.Message, True)

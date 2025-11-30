@@ -27,6 +27,9 @@ Imports System.Runtime.InteropServices
 '      Número de compilación
 '      Revisión
 '
+' Puede especificar todos los valores o utilizar los números de compilación y de revisión predeterminados
+' mediante el carácter '*', como se muestra a continuación:
+' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.1.0")>
 <Assembly: AssemblyFileVersion("27.11.20.25")>
