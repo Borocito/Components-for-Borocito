@@ -2,9 +2,11 @@ import socket
 import threading
 from typing import List
 
+# THIS FILE CAN BE EXECUTED ON A CLOUD SERVER, LIKE EC2, VPS, ETC...
+
 # Configuración del servidor
-HOST = 'borocito.local'
-PORT = 13120
+HOST = 'borocito.local' # USE THE IP OR URL OF THE SERVER
+PORT = 13120 # ALLOW THIS PORT ON UFW WITH 'SUDO UFW ALLOW 13120'
 
 # Lista para almacenar los clientes conectados
 clients: List[socket.socket] = []

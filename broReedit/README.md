@@ -6,6 +6,9 @@ Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/mai
 This complement allows you to modify the Windows Registry.  
 
 To use this component (and not navigate blindly) it is necessary to have [boro-hear](https://github.com/Borocito/Components-for-Borocito/blob/main/boro-hear/README.md) installed.  
+
+**Be very careful. It's the funkin Windows Registry after all...**  
+
 > Single Instance Package
 
 ## Usage

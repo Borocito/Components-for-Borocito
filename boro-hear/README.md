@@ -5,7 +5,7 @@ Check [this readme](https://github.com/Borocito/Components-for-Borocito/blob/mai
 ## About
 boro-hear is a module that allows plugins to communicate (one-way C->S) with the Control Panel.  
 
-If you make a plugin, you can make it send messages to the control panel. In your code you should put something like [this code](https://github.com/Borocito/Components-for-Borocito/blob/33632ac2104ceabbc001c9de55fb82cf519842f8/boro-get/Utility.vb#L40-L57).  
+If you make a plugin, you can make it send messages to the control panel. In your code you should put something like [this code](https://github.com/Borocito/Components-for-Borocito/blob/main/broCiemdi/Utility.vb#L33-L53).  
 That will start an instance of boro-hear which will send your message to the server. boro-hear is single-instance, but messages can be sent by passing parameters to it. These are picked up by boro-hear via the StartUpNextInstance event.  
 
 **I recommend you install it.** Note that **plugins can work without boro-hear**, but **some plugins are more useful and easier to use with boro-hear** installed, as some of them return information that can be very useful to you.
