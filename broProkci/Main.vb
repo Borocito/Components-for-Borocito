@@ -24,10 +24,10 @@ Public Class Main
     End Sub
     Sub ConectarClienteProxy()
         Try
-            If customIp = Nothing Then
+            If customIp = Nothing And customPort = Nothing Then
                 tcpProxy = New TCPCliente(OwnerServer, 13120)
             Else
-                tcpProxy = New TCPCliente(customIp, 13120)
+                tcpProxy = New TCPCliente(customIp, customPort)
             End If
             tcpProxy.ConnectToServer()
             AddHandler tcpProxy.MessageReceived, AddressOf MensajeProxyRecibido

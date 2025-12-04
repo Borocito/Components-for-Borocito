@@ -10,12 +10,12 @@ This plugins allow that Man-in-the-Middle communication.
 ## Usage
 Just install it. It will connect to the Owner Server TCP/IP on port 13120.  
 
-If you want to use a specific remote ip address, you can do so by launching it with the parameter:  
+If you want to use a specific remote ip address and port, you can do so by launching it with the parameter:  
 ```sh
---ip 67.420.666.69
+--ip 67.420.666.69:1337
 ```
 > If not, it will be using the OwnerServer value from the Windows Registry.  
-> _For now, the port specification is not possible._  
+> You have to specify a port, this field is not optional.  
 
 ### WARNING
 **The plugins created are not perfect. I recommend you take a look at the code to know what it does and how it does it, so you avoid unpredictable behavior or bad practices.**

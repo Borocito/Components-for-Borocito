@@ -4,6 +4,7 @@ Module GlobalUses
     Public DIRCommons As String = "C:\Users\" & Environment.UserName & "\AppData\Local\Microsoft\Borocito"
     Public DIRHome As String = DIRCommons & "\boro-get\" & My.Application.Info.AssemblyName
     Public customIp As String = Nothing
+    Public customPort As Integer = Nothing
 End Module
 Module Utility
     Public tlmContent As String
@@ -105,7 +106,11 @@ Module StartUp
             If parametros.Contains(" ") Then
                 Dim args As String() = parametros.Split(" ")
                 If args(0).ToLower = "ip" Then
-                    customIp = args(1).Trim()
+                    Dim server = args(1).Trim().Split(":") 'localhost:13120
+                    Dim ip As String = server(0).Trim() 'localhost
+                    Dim port As Integer = Integer.Parse(server(1).Trim()) '13120
+                    customIp = ip
+                    customPort = port
                 ElseIf args(0).ToLower = "stop" Then
                     End
                 End If
