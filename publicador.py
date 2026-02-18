@@ -1,5 +1,6 @@
 import os
 import re
+import json
 os.system("cls")
 
 # Ruta base donde se encuentran los proyectos
@@ -47,6 +48,7 @@ def extraer_informacion_ensamblado(assembly_info_path):
     else:
         return None
 
+json_component_packages = []
 # Recorremos los proyectos
 for project in os.listdir(base_path):
     project_path = os.path.join(base_path, project)
@@ -81,14 +83,34 @@ Binaries=http://borocito.local/Boro-Get/REPO/{assembly_product}.zip
 Installer=NULL
 InstallFolder=%temp%
                 """
-
+                json_content = {
+                    "name": assembly_product,
+                    "description": "",
+                    "executable": assembly_product,
+                    "version": assembly_version,
+                    "docs": f"https://github.com/Borocito/Components-for-Borocito/tree/main/{assembly_product}",
+                    "binaries": f"http://borocito.local/Boro-Get/REPO/{assembly_product}.zip",
+                    "author": assembly_company,
+                    "website": f"http://github.com/{assembly_company}"
+                }
+                # Guardar el archivo .json en la carpeta repositorios/
+                json_filename = f"{assembly_product}.json"
+                json_path = os.path.join(repositorios_path, json_filename)
+                with open(json_path, 'w', encoding='utf-8') as json_file:
+                    json_file.write(json.dumps(json_content, indent=4))
+                json_component_packages.append(json_content)
+                
                 # Guardar el archivo .inf en la carpeta repositorios/
                 inf_filename = f"{assembly_product}.inf"
                 inf_path = os.path.join(repositorios_path, inf_filename)
-
                 with open(inf_path, 'w', encoding='utf-8') as inf_file:
                     inf_file.write(inf_content.strip())
 
-                print(f"Archivo .inf creado: {inf_path}")
+                print(f"Archivo {json_filename} y {inf_filename} creado")
 
+# Guardar el archivo .json de todos en la carpeta repositorios/
+json_filename = f"components-for-borocito-all.json"
+json_path = os.path.join(repositorios_path, json_filename)
+with open(json_path, 'w', encoding='utf-8') as json_file:
+    json_file.write(json.dumps(json_component_packages, indent=4))
 print("¡Publicacion terminada!")
