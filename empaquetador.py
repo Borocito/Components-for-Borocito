@@ -1,9 +1,13 @@
+"""
+Crea un archivo .zip que contiene todos los executables de todos los componentes disponibles.
+"""
 import os
 import zipfile
-os.system("cls")
+
+# TODO : zip everything inside bin/Debug (and so: dll files)
 
 # Ruta base donde se encuentran los proyectos
-base_path = "C:\\Users\\Zhen\\Documents\\GitHub\\Components-for-Borocito"  # Reemplaza esto con la ruta de tu solución
+base_path = os.getcwd()
 compressed_folder = "binarios"
 compress_ext = ".zip"
 

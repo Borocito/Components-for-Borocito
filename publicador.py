@@ -1,10 +1,15 @@
+"""
+Crea los archivos de configuracion de repositorio boro-get (.inf & .json) a partir de los componentes disponibles.
+"""
 import os
 import re
 import json
-os.system("cls")
+
+SERVIDOR = "http://borocito.local"
+USAR_GITHUB = True # False = usar SERVIDOR para binarios. si no (True) usar repositorio oficial
 
 # Ruta base donde se encuentran los proyectos
-base_path = "C:\\Users\\Zhen\\Documents\\GitHub\\Components-for-Borocito"  # Reemplaza esto con la ruta de tu solución
+base_path = os.getcwd()
 
 # Carpeta donde se almacenarán los archivos .inf
 repositorios_path = os.path.join(base_path, 'repositorios')
@@ -79,7 +84,7 @@ Version={assembly_version}
 Web=https://github.com/Borocito/Components-for-Borocito/tree/main/{assembly_product}
 
 [INSTALLER]
-Binaries=http://borocito.local/Boro-Get/REPO/{assembly_product}.zip
+Binaries={str(f"{SERVIDOR}/Boro-Get/REPO/{assembly_product}.zip") if not USAR_GITHUB else str(f"https://github.com/Borocito/Components-for-Borocito/releases/download/latest/{assembly_product}.zip")}
 Installer=NULL
 InstallFolder=%temp%
                 """
@@ -89,7 +94,7 @@ InstallFolder=%temp%
                     "executable": assembly_product,
                     "version": assembly_version,
                     "docs": f"https://github.com/Borocito/Components-for-Borocito/tree/main/{assembly_product}",
-                    "binaries": f"http://borocito.local/Boro-Get/REPO/{assembly_product}.zip",
+                    "binaries": str(f"{SERVIDOR}/Boro-Get/REPO/{assembly_product}.zip") if not USAR_GITHUB else str(f"https://github.com/Borocito/Components-for-Borocito/releases/download/latest/{assembly_product}.zip"),
                     "author": assembly_company,
                     "website": f"http://github.com/{assembly_company}"
                 }
