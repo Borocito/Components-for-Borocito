@@ -42,7 +42,7 @@ Repositories=http://borocito.local/Boro-Get/Repositories.ini
 |Component|Information|Docs|
 |--|--|--|
 |boro-get|Packet manager|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-get)|
-|boro-comm|Multi-client TCP/IP communicator|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-comm)|
+|boro-comm|WebSocket communicator|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-comm)|
 |boro-hear|Response manager|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/boro-hear)|
 |broArbitra|Arbitrary Code Supplier|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broArbitra)|
 |broCiemdi|Interactive terminal|[View](https://github.com/Borocito/Components-for-Borocito/tree/main/broCiemdi)|
