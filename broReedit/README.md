@@ -12,9 +12,11 @@ To use this component (and not navigate blindly) it is necessary to have [boro-h
 > Single Instance Package
 
 ## Usage
+**Use ' arround string parameters!**  
+
 **To select a "Hive":**  
 ```bash
-/selecthk <hive>
+/selecthk '<hive>'
 ```
 Hives:  
 - ClassesRoot
@@ -26,46 +28,47 @@ Hives:
 
 Example:  
 ```bash
-/selecthk CurrentUser
+/selecthk 'CurrentUser'
 ```
 ---
 **To select a SubKey:**  
 ```bash
-/selectkey <subkey>
+/selectkey '<subkey>'
 ```
 Example:  
 ```bash
-/selecthk SOFTWARE\Borocito
+/selectkey 'SOFTWARE\Borocito'
 ```
 ---
 **To get a value:**  
 ```bash
-/getvalue <valueName>
+/getvalue '<valueName>'
 ```
 Example:  
 ```bash
-/getvalue OwnerServer
+/getvalue 'OwnerServer'
 ```
 ---
 **To set a value:**  
 ```bash
-/setvalue <valueName> <value> <valueKind>
+/setvalue <valueName> <valueKind/null/skip> '<value>' 
 ```
-See types in [RegistryValueKind Enum (Microsoft.Win32) | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.win32.registryvaluekind?msclkid=cb066977c71011ecb24bd53c4a938a9b&view=net-6.0)
+See types in [RegistryValueKind Enum (Microsoft.Win32) | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.win32.registryvaluekind?msclkid=cb066977c71011ecb24bd53c4a938a9b&view=net-6.0)  
 Example:  
 ```bash
-/setvalue OwnerServer http://.../ 1
+/setvalue OwnerServer 'http://.../' null
 ```
-If you set null in valueKind then will be 1 (String)  
+If you set `null` in valueKind then will be 1 (String)  
+> skip is when u dont put the parameter in the final string, in this example, with skip it would be `/setvalue OwnerServer 'http://.../'`
 
 ---
 **To delete a value:**  
 ```bash
-/deletevalue <valueName>
+/deletevalue '<valueName>'
 ```
 Example:  
 ```bash
-/deletevalue OwnerServer
+/deletevalue 'OwnerServer'
 ```
 ---
 **To get a value names:**  
@@ -81,11 +84,11 @@ Return:
 ---
 **To get a value kind:**  
 ```bash
-/getvaluekind <valueName>
+/getvaluekind '<valueName>'
 ```
 Example:  
 ```bash
-/getvaluekind OwnerServer
+/getvaluekind 'OwnerServer'
 ```
 ```bash
 Return:
@@ -101,29 +104,29 @@ See types in [RegistryValueKind Enum (Microsoft.Win32) | Microsoft Docs](https:/
 ---
 **To create a SubKey:**  
 ```bash
-/createsubkey <subKeyName>
+/createsubkey '<subKeyName>'
 ```
 Example:  
 ```bash
-/createsubkey Backup
+/createsubkey 'Backup'
 ```
 ---
 **To delete a SubKey:**  
 ```bash
-/deletesubkey <subkeyName>
+/deletesubkey '<subkeyName>'
 ```
 Example:  
 ```bash
-/deletesubkey boro-get
+/deletesubkey 'boro-get'
 ```
 ---
 **To delete a SubKey Tree:**  
 ```bash
-/deletesubkeytree <subkeyName>
+/deletesubkeytree '<subkeyName>'
 ```
 Example:  
 ```bash
-/deletesubkeytree boro-get
+/deletesubkeytree 'boro-get'
 ```
 (Will remove all subkeys hanging from the "`boro-get`" key)  
 
