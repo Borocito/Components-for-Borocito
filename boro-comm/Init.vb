@@ -38,16 +38,15 @@ Public Class Init
                 Return
             End If
 
-            ' TODO : OwnerServer may containt /api (concat with websocket url raises an error)
             If customWS = Nothing Then
                 webSocket = New WebSocketClient(
-                    "ws://" & OwnerServer.Replace("/api", "") & "/ws/instance/22be5bc3-599d-448f-bf28-8da9152ac1a9/",
-                    "fake_id_that_doesnt_matter_cuz_is_not_used__yet"
+                    "ws://" & OwnerServer & "/ws/instance/" & UID & "/",
+                    UID
                 )
             Else
                 webSocket = New WebSocketClient(
-                    "ws://" & customWS & "/ws/instance/22be5bc3-599d-448f-bf28-8da9152ac1a9/",
-                    "fake_id_that_doesnt_matter_cuz_is_not_used__yet"
+                    "ws://" & customWS & "/ws/instance/" & UID & "/",
+                    UID
                 )
             End If
 

