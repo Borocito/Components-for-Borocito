@@ -3,6 +3,7 @@ Module GlobalUses
     Public parameters As String
     Public DIRCommons As String = "C:\Users\" & Environment.UserName & "\AppData\Local\Microsoft\Borocito"
     Public DIRHome As String = DIRCommons & "\boro-get\" & My.Application.Info.AssemblyName
+    Public customWS As String = Nothing
 End Module
 Module Utility
     Public tlmContent As String
@@ -30,11 +31,37 @@ Module Utility
         End Try
     End Function
 End Module
+Module Memory
+    Public regKey As RegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Borocito", True)
+    Public OwnerServer As String
+    Sub LoadRegedit()
+        Try
+            AddToLog("LoadRegedit@Memory", "Loading data...", False)
+            OwnerServer = regKey.GetValue("OwnerServer").ToString().Replace("http://", "").Replace("https://", "").Replace("/Borocito", "")
+            RegisterInstance()
+        Catch ex As Exception
+            AddToLog("LoadRegedit@Memory", "Error: " & ex.Message, True)
+        End Try
+    End Sub
+    Sub RegisterInstance()
+        Try
+            Dim llaveReg As String = "SOFTWARE\\Borocito\\boro-get\\" & My.Application.Info.AssemblyName
+            Dim registerKey As RegistryKey = Registry.CurrentUser.OpenSubKey(llaveReg, True)
+            If registerKey IsNot Nothing Then
+                registerKey.CreateSubKey(llaveReg)
+                registerKey.SetValue("Version", My.Application.Info.Version.ToString & " (" & Application.ProductVersion & ")")
+            End If
+        Catch ex As Exception
+            AddToLog("RegisterInstance@Memory", "Error: " & ex.Message, True)
+        End Try
+    End Sub
+End Module
 Module StartUp
     Sub Init()
         AddToLog("Init", My.Application.Info.AssemblyName & " " & My.Application.Info.Version.ToString & " (" & Application.ProductVersion & ")" & " has started! " & DateTime.Now.ToString("hh:mm:ss tt dd/MM/yyyy"), True)
         Try
             CommonActions()
+            LoadRegedit()
         Catch ex As Exception
             AddToLog("Init@StartUp", "Error: " & ex.Message, True)
         End Try
@@ -53,14 +80,18 @@ Module StartUp
     End Sub
     Sub ReadParameters(ByVal parametros As String)
         Try
-            If parametros <> Nothing Then
-                Dim parameter As String = parametros
-                If parameter.ToLower Like "*/*" Then
-
+            If parametros.Contains(" ") Then
+                Dim args As String() = parametros.Split(" ")
+                If args(0).ToLower = "ws" Then
+                    Dim server = args(1).Trim() 'localhost
+                    customWS = server
+                ElseIf args(0).ToLower = "stop" Then
+                    End
                 End If
             End If
         Catch ex As Exception
             AddToLog("ReadParameters@StartUp", "Error: " & ex.Message, True)
+            End
         End Try
     End Sub
 End Module

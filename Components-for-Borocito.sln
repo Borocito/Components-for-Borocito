@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+# Visual Studio Version 18
+VisualStudioVersion = 18.8.12023.21 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "boro-get", "boro-get\boro-get.vbproj", "{E6DFB78F-7A1D-4B76-B0DB-F429933A3ABD}"
 EndProject
@@ -27,9 +27,9 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "broCiemdi", "broCiemdi\broC
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "boro-config", "boro-config\boro-config.vbproj", "{2261B8F4-B5C3-4D5B-B180-11632BCC66BD}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "boro-comm", "boro-comm\boro-comm.vbproj", "{E8F782DF-905F-46B4-830B-258BF5716305}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "broProkci", "broProkci\broProkci.vbproj", "{29843B2D-DD56-4C2A-9AE8-5471FBE4DE77}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "boro-comm", "boro-comm\boro-comm.vbproj", "{C58C4FC9-7DDF-45EB-A109-5E5E14E5AC06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,14 +85,14 @@ Global
 		{2261B8F4-B5C3-4D5B-B180-11632BCC66BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2261B8F4-B5C3-4D5B-B180-11632BCC66BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2261B8F4-B5C3-4D5B-B180-11632BCC66BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8F782DF-905F-46B4-830B-258BF5716305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8F782DF-905F-46B4-830B-258BF5716305}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8F782DF-905F-46B4-830B-258BF5716305}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8F782DF-905F-46B4-830B-258BF5716305}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29843B2D-DD56-4C2A-9AE8-5471FBE4DE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29843B2D-DD56-4C2A-9AE8-5471FBE4DE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29843B2D-DD56-4C2A-9AE8-5471FBE4DE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29843B2D-DD56-4C2A-9AE8-5471FBE4DE77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58C4FC9-7DDF-45EB-A109-5E5E14E5AC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58C4FC9-7DDF-45EB-A109-5E5E14E5AC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58C4FC9-7DDF-45EB-A109-5E5E14E5AC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58C4FC9-7DDF-45EB-A109-5E5E14E5AC06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
